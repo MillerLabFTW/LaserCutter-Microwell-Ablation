@@ -1,0 +1,25 @@
+Protocol for finding Laser Focal Point
+ 
+Equipment
+	• SeemeCNC Laser Cutter
+	• Z-axis Stage
+ 
+Identify focal point by ablation diameter
+	1. Home the z-axis and raise the platform using pronterface or G0 commands to where the PDMS to be ablated is just below or touching the laser head. Be sure to have the PDMS in an experimental-like condition (with any extra material beneath it, etc. to simulate the actual distance to the PDMS surface). WARNING: When raising the platform, be careful near the laser head tip because collisions can damage the laser head.
+	2. Note the coordinates of the laser head from the home beacon using the M114 command in pronterface.
+	3. Find a power and dwell time for ablating PDMS that does not pierce the PDMS. 
+	4. Successively ablate rows of microwells using the following command combinations: 
+		a. G92
+		b. G0 Za
+		c. G91
+		d. G1 B1 P0.5 Sb Lc X10 
+		e. G0 X-10 Y3 Zd
+		f. “Repeat c-d until well diameter begins to get bigger”
+		g. Variable Explanation
+			i. a -> Initial z-point that should be above the focal distance
+			ii. b -> Power that does not pierce PDMS
+			iii. c -> Dwell Time (µs) that does not pierce PDMS
+			iv. d -> Resolution of z-focal distance desired; Should be negative number
+				1) You can repeat this process successively with finer resolutions of z to get a better approximation of the focal distance.
+	5. The true focal distance will be the distance where the row of wells has the smallest diameter.
+	6. Once the focal distance from the laser head is identified, write down the number and use it for future experiments. If you’ve homed the z-axis correctly, then M114 should give the coordinates of the focal distance.
