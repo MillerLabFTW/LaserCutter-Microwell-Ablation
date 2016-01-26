@@ -25,10 +25,6 @@ This git repository includes:
 
 ### Acknowledgements
 
-3D printing by CO2 laser ablation was first demonstrated by:
-
- 
-
 The initial influence for using a laser cutter to ablate conical microwells comes from Roger Kamm's group at MIT:
 
 Tu, Ting-Yuan, et al. "Rapid prototyping of concave microwells for the formation of 3D multicellular cancer aggregates for drug screening." Advanced healthcare materials 3.4 (2014): 609-616.
