@@ -1,5 +1,8 @@
 # Laser Cutter Setup for Ablation of Microwells in PDMS
 
+See accompanying journal article for more information: 
+DOI: 10.1039/C5RA26022A 
+
 ##### A modified laser cutter platform for ablating microwells into PDMS
 ##### Miller Lab: Physiological Systems Engineering and Advanced Materials
 ##### [millerlab.rice.edu] (http://millerlab.rice.edu)
@@ -11,10 +14,10 @@ We have custom modified a commercial SeeMeCNC laser cutter to selectively ablate
 ### Documentation
 This git repository includes:
 - STL files for 3D printing custom parts for the laser cutter
-- Current firmware (modified Marlin for laser cutters courtesy of Tim Schmidt, Lansing-Maker-Network)
+- Current Marlin firmware (modified Marlin for laser cutters courtesy of Tim Schmidt, Lansing-Maker-Network)
 - Python scripts for G-code creation
-- Wiring Diagram for electronics configuation (basded on RAMBo electronics)
-- Instructions for printing microwells
+- Wiring Diagram for electronics configuation (based on RAMBo electronics)
+- Instructions for operating the laser cutter
 - Bill of Materials
 
 
