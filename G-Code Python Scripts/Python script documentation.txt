@@ -1,0 +1,45 @@
+Laser-ablation-GUI
+This folder contains the major script for patterning rectangular arrays of microwells with the same laser parameters.
+
+run.py
+*****YOU MUST CHANGE THE FOCUS VARIABLE IN RUN.PY TO RUN PROPERLY.  You can find the z-axis focus point by following the "focal point" protocol in the "Laser cutter operation" folder.
+ 
+Tkinter GUI for making GCODE files for ablating PDMS with the laser cutter.  The program displays a simple user interface with parameter boxes for all of the relevant parameters necessary to print.
+ 
+ 
+ 
+Pressing the Make GCODE button will create a file in a separate GCODE folder with a time and date stamp inside the filename.
+ 
+NOTE: Must be run as using Python 3. Not compatible with Python 2.
+
+
+ 
+Laser-ablation-functions
+A few functions that can be used to create different patterns of microwells.
+
+P-scan
+Run script by running pscan.py.  You can modify the config.py file to change the laser cutting parameters manually. 
+
+This program is a diagnostic tool for finding microwells of different dimensions. The program outputs a rough 3D matrix of microwell conditions based on inputs from "laserPowers", "dwellTimes" and "zValues". 
+
+The orientation parameter at the bottom will determine how the dimensions are displayed. See comments for details.
+
+It is important to set the focus correctly. (See run.py description).
+
+
+Circle-cut
+Run script by running circle-cut.py. You can modify the config.py file to change the cut parameters.
+ 
+Script to cut n-sided polygons with Laser Cutter toolchain.  Parameters are currently optimized for cutting PDMS with our current z-axis system. 
+ 
+The current implementation (as of 5/2015) requires that the parameters be manually modified from the config.py file.  
+ 
+
+µWells-multishape
+Run pulse.py. 
+
+Config.py file can be modified to change the parameters.  Currently the simple script prints rows of alternative laser profile parameters.  Each profile is the nth element of the array lists for laserPower, dwellTime, and zValue.  
+
+In theory, any number of laser profiles can be interleaved, but the program is not designed to account for printing too many shapes.
+
+

@@ -4,14 +4,7 @@ from tkinter import ttk
 from time import strftime, localtime
 import os
 
-
-# INITIALIZE FOCAL POINT DISTANCE MANUALLY
-# The focal point is the z-axis co-ordinate where the laser
-# is in focus
-FOCAL_POINT = 125.25 #mm above z-axis home
-
-
-## Functions
+# Functions
 
 def dateName():
     dateStr = strftime("%Y-%B-%d", localtime())
@@ -21,7 +14,6 @@ def timeName():
     timeStr = strftime("%I-%M-%S %p", localtime())
     return timeStr
 
-# Creates a new directory for the config.py file if necessary
 def initConfigDir(filename):
     dateStr = dateName()
     timeStr = timeName()
@@ -32,7 +24,6 @@ def initConfigDir(filename):
     filePath = "{0}/{1} {2}".format(dirPath,timeStr,filename)
     return filePath
 
-# Creates a new directory for the .gcode file if necessary
 def initGcodeDir(filename):
     dateStr = dateName()
     timeStr = timeName()
@@ -43,14 +34,10 @@ def initGcodeDir(filename):
     filePath = "{0}/{1} {2}".format(dirPath,timeStr,filename)
     return filePath
 
-	
-# Function for writing a config.py file based on inputs to the GUI
-# The config.py file keeps a record of the parameters used for the print
-# and can be copied to 
 def writeConfig(*args):    
     
-	# Dictionary of laser ablation parameter string names (key) 
-	# and parameter inputs to the GUI (value)
+    FOCAL_POINT = 124.1
+    
     configParam = {
                    "filenameStr": str(filename.get()),
                    'gcodeNameStr':str(filename.get()) + ".gcode",
@@ -58,7 +45,7 @@ def writeConfig(*args):
                    "dwellStr":    str(dwellTime.get()),
                    "xStr":        str(x_start.get()),
                    'yStr':        str(y_start.get()),
-                   "zStr":        "{:.1f}".format(FOCAL_POINT - int(z_dist.get())),
+                   "zStr":        "{:.2f}".format(FOCAL_POINT - float(z_dist.get())),
                    "pauseStr":    str(pauseStr.get()),
                    "speedStr":    str(feedRate.get()),
                    "lengthStr":   str(rectLength.get()),
@@ -66,6 +53,7 @@ def writeConfig(*args):
                    "spaceStr":    str(3),
                    "hexPackStr":  "{:.3f}".format(float(hexPack.get())),
                    "relStr":      str(relative.get()),
+				   "cleanStr":	  str(clean.get())	
                    }
     
     try:
@@ -91,7 +79,8 @@ def writeConfig(*args):
                 "spaceSmall     = {10} #mm; space between rectangles\n"
                 "hexLength      = {11} #mm\n\n"
                 "#Other\n"
-                "relative       = {12} #0 for homing before beginning.  1 if machine has already been homed"
+                "relative       = {12} #0 for homing before beginning.  1 if machine has already been homed\n"
+				"cleanTrigger	= {13} #number of rows between laser head cleanings"
                 ).format(configParam["gcodeNameStr"],
                          configParam["laserStr"],
                          configParam["dwellStr"],
@@ -105,6 +94,7 @@ def writeConfig(*args):
                          configParam["spaceStr"],
                          configParam["hexPackStr"],
                          configParam["relStr"],
+						 configParam["cleanStr"]
                          )
     f.writelines(filetext)
     f.close()
@@ -247,17 +237,21 @@ optFrame.rowconfigure(0,weight=5)
 #Initialize variables in the options frame
 relative = IntVar()
 pauseStr = StringVar()
+clean = StringVar()
  
 # Title
 ttk.Label(optFrame,text="Options").grid(column=1,row=1,sticky=(W))
  
 # Label
 ttk.Label(optFrame, text="Pause between rows:").grid(column=1,row=3,sticky=(W))
+ttk.Label(optFrame, text="Clean Trigger:").grid(column=1,row=4,sticky=(W))
  
 # Entries
 ttk.Checkbutton(optFrame, text="Home before ablation", variable=relative, onvalue=0, offvalue=1).grid(column=1,row=2,sticky=W)
 rel_entry = ttk.Entry(optFrame,width=5,textvariable=pauseStr)
 rel_entry.grid(column=2,row=3,sticky=W)
+clean_entry = ttk.Entry(optFrame,width=5,textvariable=clean)
+clean_entry.grid(column=2,row=4,sticky=W)
 
 
 
