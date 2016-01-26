@@ -8,6 +8,8 @@ DOI: 10.1039/C5RA26022A
 ##### [millerlab.rice.edu] (http://millerlab.rice.edu)
 &nbsp;
 
+![MillerLab logo](https://github.com/MillerLabFTW/OpenSLS/blob/master/MillerLab_logo.jpg)
+
 We have custom modified a commercial SeeMeCNC laser cutter to selectively ablate microwell structures in PDMS. Using the modified laser cutter and our python scripts, you can print hexagonally packed arrays of microwells.
 
 
@@ -19,12 +21,6 @@ This git repository includes:
 - Wiring Diagram for electronics configuation (based on RAMBo electronics)
 - Instructions for operating the laser cutter
 - Bill of Materials
-
-
-### Modifications to the laser cutter:
-
-
-![MillerLab logo](https://github.com/MillerLabFTW/OpenSLS/blob/master/MillerLab_logo.jpg)
 
 
 ### Acknowledgements
