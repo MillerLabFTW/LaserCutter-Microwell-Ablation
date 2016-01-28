@@ -1,9 +1,14 @@
 # Laser Cutter Setup for Ablation of Microwells in PDMS
 
+See accompanying journal article for more information: 
+DOI: 10.1039/C5RA26022A 
+
 ##### A modified laser cutter platform for ablating microwells into PDMS
 ##### Miller Lab: Physiological Systems Engineering and Advanced Materials
 ##### [millerlab.rice.edu] (http://millerlab.rice.edu)
 &nbsp;
+
+![MillerLab logo](https://github.com/MillerLabFTW/OpenSLS/blob/master/MillerLab_logo.jpg)
 
 We have custom modified a commercial SeeMeCNC laser cutter to selectively ablate microwell structures in PDMS. Using the modified laser cutter and our python scripts, you can print hexagonally packed arrays of microwells.
 
@@ -11,24 +16,14 @@ We have custom modified a commercial SeeMeCNC laser cutter to selectively ablate
 ### Documentation
 This git repository includes:
 - STL files for 3D printing custom parts for the laser cutter
-- Current firmware (modified Marlin for laser cutters courtesy of Tim Schmidt, Lansing-Maker-Network)
+- Current Marlin firmware (modified Marlin for laser cutters courtesy of Tim Schmidt, Lansing-Maker-Network)
 - Python scripts for G-code creation
-- Wiring Diagram for electronics configuation (basded on RAMBo electronics)
-- Instructions for printing microwells
+- Wiring Diagram for electronics configuation (based on RAMBo electronics)
+- Instructions for operating the laser cutter
 - Bill of Materials
 
 
-### Modifications to the laser cutter:
-
-
-![MillerLab logo](https://github.com/MillerLabFTW/OpenSLS/blob/master/MillerLab_logo.jpg)
-
-
 ### Acknowledgements
-
-3D printing by CO2 laser ablation was first demonstrated by:
-
- 
 
 The initial influence for using a laser cutter to ablate conical microwells comes from Roger Kamm's group at MIT:
 
